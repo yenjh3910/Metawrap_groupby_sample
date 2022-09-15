@@ -2,16 +2,8 @@
 
 ## Binning pipeline
 ### Co-assembly (MEGAHIT)
-Clean read name as \\${i}_1.fastq.gz & ${i}_2.fastq.gz  
-Put all clean read file in $\~/clean_read   
-```  
-#metawrap_coassembly
-cat ~/clean_read/AT*_1.fastq.gz > ~/clean_read/AT_1.fastq.gz
-cat ~/clean_read/AT*_2.fastq.gz > ~/clean_read/AT_2.fastq.gz  
-{Then remove all individual clean read manually}
-gunzip ~/clean_read/AT_1.fastq.gz ~/clean_read/AT_2.fastq.gz
-megahit -t 16 -m 0.95 -1 ~/clean_read/AT_1.fastq -2 ~/clean_read/AT_2.fastq --min-contig-len 1000 -o ~/megahit/megahit_coassembly_groupby_sample/AT_coassembly
-rm ~/clean_read/AT_1.fastq ~/clean_read/AT_2.fastq
+#use bbnorm read
+megahit -t 16 -m 0.95 -1 AT1_1.fastq,AT2_1.fastq,AT3_1.fastq,AT4_1.fastq,AT5_1.fastq -2 AT1_2.fastq,AT2_2.fastq,AT3_2.fastq,AT4_2.fastq,AT5_2.fastq --min-contig-len 1000 -o ~/megahit/megahit_coassembly_groupby_sample/AT_coassembly
 
 #quast
 ~/quast-5.1.0rc1/quast.py ~/megahit/megehit_coassembly/final.contigs.fa -o ~/megahit/megehit_coassembly/coassembly_quast
