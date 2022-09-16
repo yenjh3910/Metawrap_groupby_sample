@@ -5,7 +5,8 @@
 ```
 #use bbnorm read
 megahit -t 16 -m 0.95 -1 AT1_1.fastq,AT2_1.fastq,AT3_1.fastq,AT4_1.fastq,AT5_1.fastq -2 AT1_2.fastq,AT2_2.fastq,AT3_2.fastq,AT4_2.fastq,AT5_2.fastq --min-contig-len 1000 -o ~/megahit/megahit_coassembly_groupby_sample/AT_coassembly
-
+##quest
+~/quast-5.1.0rc1/quast.py ~/megahit/megahit_coassembly_groupby_sample/AT_coassembly/final.contigs.fa -o ~/megahit/megahit_coassembly_groupby_sample/AT_coassembly/coassembly_AT_quast
 ```   
 
 ### metaWRAP (use fastq format except metabat2)
