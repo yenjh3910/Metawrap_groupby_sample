@@ -13,7 +13,7 @@ megahit -t 16 -m 0.95 -1 AT1_1.fastq,AT2_1.fastq,AT3_1.fastq,AT4_1.fastq,AT5_1.f
 #### metabat2    
 ```   
 cd ~/bowtie2    
-bowtie2-build  ~/megahit/megahit_coassembly_groupby_sample/AT_coassembly/final.contigs.fa coassembly_AT_contig   
+bowtie2-build  ~/megahit/group_coassembly/AT_coassembly/final.contigs.fa coassembly_AT_contig   
 ```   
 copy clean reads to $bowtie2    
 ```   
@@ -23,14 +23,14 @@ delete clean reads in $bowtie2
 ```
 conda activate metawrap-env
 cd ~/metabat2
-runMetaBat.sh ~/megahit/megahit_coassembly_groupby_sample/AT_coassembly/final.contigs.fa ~/bowtie2/coassembly.AT.sort.bam   
+runMetaBat.sh ~/megahit/group_coassembly/AT_coassembly/final.contigs.fa ~/bowtie2/coassembly.AT.sort.bam   
 mv {final.contigs.fa.metabat-bins-20220508_131755} metabat2_AT_bins
 rm ~/metabat2/final.contigs.fa.depth.txt  
 mv ~/metabat2/metabat2_AT_bins ~/metawrap_run/initial_binning
 ```   
 #### metaWRAP binning (maxbin2, concoct)   
  ```    
- metawrap binning -o ~/metawrap_run/initial_binning -t 16 -a ~/megahit/megehit_coassembly/final.contigs.fa --maxbin2 --concoct ~/clean_read/*fastq    
+ metawrap binning -o ~/metawrap_2.0/initial_binning -t 16 -a ~/megahit/group_coassembly/AT_coassembly/final.contigs.fa --maxbin2 --concoct ~/clean_read/*fastq    
  ```
 #### metaWRAP refinement  
 ```  
