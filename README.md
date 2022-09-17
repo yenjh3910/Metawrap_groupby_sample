@@ -41,7 +41,7 @@ metawrap binning -o ~/metawrap_run/initial_binning -t 16 -a ~/megahit/megehit_co
 ```  
 #### metaWRAP quant_bins
 ```
-metawrap quant_bins -b ~/metawrap_2.0/bin_refinement/metawrap_50_10_bins -o ~/metawrap_2.0/bin_quant -a ~/megahit/group_coassembly/AT_coassembly/final.contigs.fa~/clean_read/*fastq -t 16  
+metawrap quant_bins -b ~/metawrap_2.0/bin_refinement/metawrap_50_10_bins -o ~/metawrap_2.0/bin_quant -a ~/megahit/group_coassembly/AT_coassembly/final.contigs.fa ~/clean_read/*fastq -t 16  
 conda deactivate
 ```
 
